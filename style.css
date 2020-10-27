@@ -1,0 +1,46 @@
+body {
+    background-color: black;
+    color: white;
+    margin-top: -40px;
+    text-align: center;
+  }
+
+.heading {
+    font-family: 'Lobster', cursive;
+    font-size: 90px;
+  }
+
+.time {
+    margin-top: 20px;
+    font-family: "Courier New";
+    font-size: 120px;
+  }
+
+.completion-text {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 50px;
+  }
+
+footer {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 13px;
+    font-weight: bolder;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    color: #999999;
+    text-align: center;
+  }
+
+button {
+    margin-top: 0px;
+    background-color: white;
+    border-radius:5px;
+    border:1px solid white;
+    cursor:pointer;
+    color: black;
+    font-family: "Courier New";
+    font-weight: bolder;
+    font-size:15px;
+    padding:7px 30px;
+  }
