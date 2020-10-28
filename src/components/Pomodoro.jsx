@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import Copyright from "./Copyright.jsx";
 
+const ONE_SECOND = 1000;
+const SET_TO_59_SECONDS = 59;
+const SET_TO_24_MINUTES = 1;
+
 function Pomodoro() {
-  const [minutes, setMinutes] = useState(25);
+  const [minutes, setMinutes] = useState(2);
   const [seconds, setSeconds] = useState(0);
+
+  var player;
 
   function stopPomodoro() {
     window.location.reload(false);
@@ -14,7 +20,8 @@ function Pomodoro() {
       while (last_second !== 0) {
         return last_second - 1;
       }
-      return 59;
+      playMinutes();
+      return SET_TO_59_SECONDS;
     });
   }
 
@@ -23,20 +30,20 @@ function Pomodoro() {
       while (last_minute !== 0) {
         return last_minute - 1;
       }
+      clearInterval(player);
       return -1;
     });
   }
 
   function startPomodoro() {
-    setMinutes(minutes - 1);
-    setSeconds(59);
-    setInterval(playSeconds, 1000);
-    setInterval(playMinutes, 60000);
+    setMinutes(SET_TO_24_MINUTES);
+    setSeconds(SET_TO_59_SECONDS);
+    player = setInterval(playSeconds, ONE_SECOND);
   }
 
   return (
       <div>
-      <h1 className="heading">Pomodoro</h1>
+        <h1 className="heading">Pomodoro Timer</h1>
         
         <br />
         {minutes === -1 ? (
