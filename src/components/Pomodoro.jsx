@@ -44,7 +44,7 @@ function Pomodoro() {
 
   return (
       <div>
-        <h1 className="heading">Pomodoro Focus Timer</h1>
+        <h1 className="heading">Pomodoro</h1>
         
         <br />
         {minutes === END_OF_TIMER ? (
