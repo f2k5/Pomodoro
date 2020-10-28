@@ -3,10 +3,11 @@ import Copyright from "./Copyright.jsx";
 
 const ONE_SECOND = 1000;
 const SET_TO_59_SECONDS = 59;
-const SET_TO_24_MINUTES = 1;
+const SET_TO_24_MINUTES = 24;
+const END_OF_TIMER = -1;
 
 function Pomodoro() {
-  const [minutes, setMinutes] = useState(2);
+  const [minutes, setMinutes] = useState(25);
   const [seconds, setSeconds] = useState(0);
 
   var player;
@@ -31,7 +32,7 @@ function Pomodoro() {
         return last_minute - 1;
       }
       clearInterval(player);
-      return -1;
+      return END_OF_TIMER;
     });
   }
 
@@ -43,10 +44,10 @@ function Pomodoro() {
 
   return (
       <div>
-        <h1 className="heading">Pomodoro Timer</h1>
+        <h1 className="heading">Pomodoro Focus Timer</h1>
         
         <br />
-        {minutes === -1 ? (
+        {minutes === END_OF_TIMER ? (
           <h2 className="completion-text">Congrats you completed your pomodoro! <br />Click reset for a new timer.</h2>
         ) : (
           
